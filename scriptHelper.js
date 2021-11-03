@@ -28,6 +28,9 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch().then( function(response) {
+        if (response.status >= 400){
+            throw new Error("ERROR");
+        }
         });
 
     return planetsReturned;
