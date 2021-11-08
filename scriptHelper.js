@@ -17,11 +17,56 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-   
+    if (testInput === ""){
+        return "Empty";
+    } else if (isNaN(testInput)){
+        return "Not a Number";
+    } else {
+        return "Is a Number";
+    }
 }
 
+
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+   let pilotStatus = document.getElementById("pilotStatus");
+   let copilotStatus = document.getElementById("copilotStatus");
+   let fuelStatus = document.getElementById("fuelStatus");
+   let cargoStatus = document.getElementById("cargoStatus");
+   let launchStatus = document.getElementById("launchStatus");
+   console.log("fuck")
+   if (validateInput(pilot) === "Empty" ||
+    validateInput(copilot) === "Empty" || 
+    validateInput(fuelLevel) === "Empty" || 
+    validateInput(cargoLevel) === "Empty") {
+    alert("All fields required!");
+    event.preventDefault();
+   } else if (validateInput(pilot) === "Is a Number" || 
+   validateInput(copilot) === "Is a Number" || 
+   validateInput(fuelLevel) === "Not a Number" || 
+   validateInput(cargoLevel) === "Not a Number") {
+       alert("Pilot and Copilot cannot be numbers; Fuel and Cargo levels must be numbers!!");
+       event.preventDefault();
+   }
+
+   pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`
+   copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch.`
+
+    if (fuelLevel < 10000) {
+       list.style.visibility = "visible";
+       launchStatus.innerHTML = "Shuttle Not Ready For Launch";
+       launchStatus.style.color = "red";
+       fuelStatus.innerHTML = `Fuel level too low for launch`;
+   } 
+   if (cargoLevel > 10000) {
+    list.style.visibility = "visible";
+    launchStatus.innerHTML = "Shuttle Not Ready For Launch";
+    launchStatus.style.color = "red";
+    cargoStatus.innerHTML = `Too much mass for takeoff`;
+   }
+   if (fuelLevel > 10000 && cargoLevel < 10000){
+       launchStatus.innerHTML = `Shuttle is ready for Launch!`;
+       launchStatus.style.color = "green";
+   }
 }
 
 async function myFetch() {
