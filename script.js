@@ -1,7 +1,19 @@
-// Write your JavaScript code here!
 
+const { formSubmission } = require("./scriptHelper");
+
+let button = document.getElementById("formSubmit");
+    let pilotName = document.getElementById("pilotName");
+    let copilotName = document.querySelector("input[name=copilotName]");
+    let fuelLevel = document.querySelector("input[name=fuelLevel");
+    let cargoMass = document.querySelector("input[name=CargoMass]");
+    let faultyItems = document.getElementsById("faultyItems");
+    document.addEventListener("submit", function(){
+        button.formSubmission(index.html, faultyItems, pilotName, copilotName, fuelLevel, cargoMass)
+    })
 window.addEventListener("load", function() {
-
+    
+    
+    })
    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
    let listedPlanetsResponse;
@@ -11,8 +23,4 @@ window.addEventListener("load", function() {
    }).then(function () {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-   })
-window.addEventListener("click", function() {
-    
-})
-});
+   });
