@@ -1,6 +1,6 @@
 
 
-window.addEventListener("load", function () {
+window.addEventListener("load", function (event) {
 
     let form = document.querySelector("form");
 
@@ -12,7 +12,7 @@ window.addEventListener("load", function () {
         let fuelLevel = document.querySelector("input[name=fuelLevel").value;
         let cargoMass = document.querySelector("input[name=cargoMass]").value;
         let list = document.getElementById("faultyItems");
-        formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass)
+        formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass, event)
     });
 
     let listedPlanets;
