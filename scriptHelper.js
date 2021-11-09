@@ -56,19 +56,19 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass, ev
             launchStatus.style.color = "red";
             fuelStatus.innerHTML = `Fuel level too low for launch`;
             cargoStatus.innerHTML = `Too much mass for takeoff`;
-        } else if (fuelLevel > 10000 && cargoMass > 10000) {
+        } else if (fuelLevel >= 10000 && cargoMass > 10000) {
             list.style.visibility = "visible";
             launchStatus.innerHTML = "Shuttle Not Ready For Launch";
             launchStatus.style.color = "red";
             fuelStatus.innerHTML = `Fuel level high enough for launch`;
             cargoStatus.innerHTML = `Too much mass for takeoff`;
-        } else if (fuelLevel < 10000 && cargoMass < 10000){
+        } else if (fuelLevel < 10000 && cargoMass <= 10000){
             list.style.visibility = "visible";
             launchStatus.innerHTML = "Shuttle Not Ready For Launch";
             launchStatus.style.color = "red";
             fuelStatus.innerHTML = `Fuel level too low for launch`;
             cargoStatus.innerHTML = `Cargo mass low enough for launch`;
-        } else if (fuelLevel > 10000 && cargoMass < 10000) {
+        } else if (fuelLevel >= 10000 && cargoMass <= 10000) {
             launchStatus.innerHTML = `Shuttle is ready for Launch!`;
             launchStatus.style.color = "green";
             fuelStatus.innerHTML = `Fuel level high enough for launch`;
@@ -95,16 +95,16 @@ async function myFetch() {
 function pickPlanet(planets) {
     let rp = Math.floor(Math.random() * planets.length);
     let randomPlanet = planets[rp];
-        missionTarget.innerHTML =
-        `<h2>Mission Destination</h2>
-        <ol>
-            <li>Name: ${planets[rp].name}</li>
-            <li>Diameter: ${planets[rp].diameter}</li>
-            <li>Star: ${planets[rp].star}</li>
-            <li>Distance from Earth: ${planets[rp].distance}</li>
-            <li>Number of Moons: ${planets[rp].moons}</li>
-        </ol>
-        <img src=${planets[rp].image}>`
+        // missionTarget.innerHTML =
+        // `<h2>Mission Destination</h2>
+        // <ol>
+        //     <li>Name: ${planets[rp].name}</li>
+        //     <li>Diameter: ${planets[rp].diameter}</li>
+        //     <li>Star: ${planets[rp].star}</li>
+        //     <li>Distance from Earth: ${planets[rp].distance}</li>
+        //     <li>Number of Moons: ${planets[rp].moons}</li>
+        // </ol>
+        // <img src=${planets[rp].image}>`
     return randomPlanet;
                  ;
 }
