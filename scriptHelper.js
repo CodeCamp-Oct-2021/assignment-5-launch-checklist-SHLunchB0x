@@ -45,7 +45,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
         validateInput(fuelLevel) === "Not a Number" ||
         validateInput(cargoMass) === "Not a Number") {
         alert("Pilot and Copilot cannot be numbers; Fuel and Cargo levels must be numbers!!");
-        event.preventDefault();
+        preventDefault();
     } else {
 
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`
@@ -75,7 +75,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
             fuelStatus.innerHTML = `Fuel level high enough for launch`;
             cargoStatus.innerHTML = `Cargo mass low enough for launch`;
         }
-        event.preventDefault();
+        preventDefault();
     }
 }
 
