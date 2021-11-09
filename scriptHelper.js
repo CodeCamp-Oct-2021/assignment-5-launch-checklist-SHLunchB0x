@@ -1,19 +1,18 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
-
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    /*
-                 <h2>Mission Destination</h2>
+    missionTarget.innerHTML =
+                 `<h2>Mission Destination</h2>
                  <ol>
-                     <li>Name: </li>
-                     <li>Diameter: </li>
+                     <li>Name: ${name}</li>
+                     <li>Diameter: ${diameter}</li>
                      <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
+                     <li>Distance from Earth: ${distance} </li>
+                     <li>Number of Moons: ${moons} </li>
                  </ol>
-                 <img src="">
-    */
+                 <img src=${imageUrl}>
+    `;
 }
 
 function validateInput(testInput) {
@@ -75,6 +74,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass, ev
             fuelStatus.innerHTML = `Fuel level high enough for launch`;
             cargoStatus.innerHTML = `Cargo mass low enough for launch`;
         }
+        event.preventDefault();
     }
 }
 
@@ -93,6 +93,20 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
+    let rp = Math.floor(Math.random() * planets.length);
+    let randomPlanet = planets[rp];
+        missionTarget.innerHTML =
+        `<h2>Mission Destination</h2>
+        <ol>
+            <li>Name: ${planets[rp].name}</li>
+            <li>Diameter: ${planets[rp].diameter}</li>
+            <li>Star: ${planets[rp].star}</li>
+            <li>Distance from Earth: ${planets[rp].distance}</li>
+            <li>Number of Moons: ${planets[rp].moons}</li>
+        </ol>
+        <img src=${planets[rp].image}>`
+    return randomPlanet;
+                 ;
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
