@@ -24,16 +24,17 @@ window.addEventListener("load", function (event) {
     }).then(function () {
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
+        rp = Math.floor(Math.random() * listedPlanets.length)
         missionTarget.innerHTML =
     `<h2>Mission Destination</h2>
                  <ol>
-                     <li>Name: ${listedPlanets[0].name}</li>
-                     <li>Diameter: ${listedPlanets[0].diameter}</li>
-                     <li>Star: ${listedPlanets[0].star}</li>
-                     <li>Distance from Earth: ${listedPlanets[0].distance}</li>
-                     <li>Number of Moons: ${listedPlanets[0].moons}</li>
+                     <li>Name: ${listedPlanets[rp].name}</li>
+                     <li>Diameter: ${listedPlanets[rp].diameter}</li>
+                     <li>Star: ${listedPlanets[rp].star}</li>
+                     <li>Distance from Earth: ${listedPlanets[rp].distance}</li>
+                     <li>Number of Moons: ${listedPlanets[rp].moons}</li>
                  </ol>
-                 <img src=${listedPlanets[0].image}>`
+                 <img src=${listedPlanets[rp].image}>`
                  ;
 });
     })

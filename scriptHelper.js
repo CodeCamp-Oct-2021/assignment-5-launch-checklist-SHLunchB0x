@@ -75,7 +75,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass, ev
             fuelStatus.innerHTML = `Fuel level high enough for launch`;
             cargoStatus.innerHTML = `Cargo mass low enough for launch`;
         }
-        event.preventDefault();
     }
 }
 
